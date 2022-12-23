@@ -1,0 +1,19 @@
+Un indice nos puede ayudar a no tener que hacer un 'page scan' completo (no tener que iterar por cada elemento). Algo que puedes hacer es:
+
+# Construir un indice mayor
+def construir_indice():
+  indice_categorias = {}
+  for pelicula, categoria in indice:
+    if categoria not in indice_categorias:
+      indice_categorias[categoria] = []
+    indice_categorias[categoria].append(pelicula)
+  return indice_categorias
+
+INDICE_CATEGORIAS = construir_indice()
+De tal manera que cuando tengas que imprimir cierta categoria, puedas hacer algo asi:
+
+def imprimir_Categoria(tipo):
+  if tipo in INDICE_CATEGORIAS:
+    print(INDICE_CATEGORIAS[tipo])
+  else:
+    # La implementacion que ya teniamos
